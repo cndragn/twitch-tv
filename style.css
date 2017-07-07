@@ -1,8 +1,13 @@
 body {
 	//background-color: #dbd5e6;
 }
-h1 {
-    margin: 50px 0;
+.container-fluid {
+	margin-bottom: 40px;
+}
+#header {
+    padding: 50px 0;
+    background-color: #4b367c;
+    color: #fff;
 }
 
 #channels {
@@ -14,7 +19,7 @@ h1 {
 
 .contain {
     text-align: center;
-    margin: 40px 0;
+    margin-top: 40px;
 }
 
 img.logo {
