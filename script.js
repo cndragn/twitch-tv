@@ -35,14 +35,14 @@ $(document).ready(function() {
                         name = data.stream.channel.display_name,
                         logo = data.stream.channel.logo,
                         game = data.stream.channel.game;
-                    online += "<div class='contain'>";
+                    online += "<div class='contain col-md-4'>";
                     online += "<a target='_blank' href=" + channel + ">";
-                    online += "<img class='logo' src=" + logo + "></a>";
+                    online += "<img class='logo online' src=" + logo + "></a>";
                     online += "<div class='info'>";
                     online += "<a target='_blank' href=" + channel + ">";
                     online += "<p class='channelName'>" + name + " streamInfo " + game + "<p>";
                     online += "</a>"
-                    online += "<p class='status'>Live</p></div></div>";
+                    online += "<p class='status live'>Live</p></div></div>";
                     $("#channels").append(online);
 
                 } else {
@@ -58,23 +58,27 @@ $(document).ready(function() {
                             name_off = userdata.display_name,
                             logo_off = userdata.logo,
                             status = "Offline";
+
                         if (name_off == undefined) {
                             name_off = userName;
                             status = "Account Not Found";
                         }
-                        offline += "<div class='contain'>";
+                        offline += "<div class='contain col-md-4'>";
+                        //logo to use if there is none
                         if (logo_off == null) {
                             logo_off = "https://static-cdn.jtvnw.net/jtv_user_pictures/twitch-profile_image-8a8c5be2e3b64a9a-300x300.png";
                         }
+                        //if channel not found, dont include link on logo
                         if (channel == null) {
-                            offline += "<img class='logo' src=" + logo_off + ">";
+                            offline += "<img class='logo inactive' src=" + logo_off + ">";
                         } else {
                             offline += "<a target='_blank' href=" + channel + ">";
                             offline += "<img class='logo' src=" + logo_off + "></a>";
                         }
                         offline += "<div class='info'>";
+                        //if channel not found, dont include link on name
                         if (channel == null) {
-                            offline += "<h2>" + name_off + "</h2>";
+                            offline += "<p class='channelName'>" + name_off + "</p>";
                         } else {
                             offline += "<a target='_blank' href=" + channel + ">";
                             offline += "<p class='channelName'>" + name_off + "<p>";
@@ -82,7 +86,6 @@ $(document).ready(function() {
                         }
 
                         offline += "<p class='notLive'>" + status + "</p></div>";
-                        offline += "<br class='clear'>";
 
                         $("#channels").append(offline);
                     }
