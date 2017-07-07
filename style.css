@@ -1,3 +1,10 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     //background-color: #dbd5e6;
     font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
@@ -16,12 +23,14 @@ a {
 a:hover {
     text-decoration: none;
 }
+
 p {
-	margin: 0;
+    margin: 0;
 }
 
 .container-fluid {
     margin-bottom: 40px;
+    height: 100%;
 }
 
 #header {
@@ -82,15 +91,20 @@ i {
     font-weight: normal;
     font-style: normal;
 }
+
 p.space {
     line-height: 2;
 }
+
 footer {
-	color: #fff;
-	    background-color: #4b367c;
+    color: #fff;
+    background-color: #4b367c;
     padding: 20px;
+    clear: both;
 }
-footer a, footer a:hover {
-	color: #fff;
-	text-decoration: underline;
+
+footer a,
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
 }

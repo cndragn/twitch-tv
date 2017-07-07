@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // interate over array of channels
-    var channels = ["food", "vid3okid", "musictowork", "freecodecamp", "cheflethalplays", "storbeck", "RobotCaleb", "noobs2ninjas", "comster404"];
+    var channels = ["food", "vid3okid", "musictowork", "freecodecamp", "cheflethalplays", "storbeck", "RobotCaleb", "brunofin", "comster404"];
     for (var i = 0; i < channels.length; i++) {
         displayChannel(channels[i]);
     };
