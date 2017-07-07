@@ -35,18 +35,19 @@ $(document).ready(function() {
                         name = data.stream.channel.display_name,
                         logo = data.stream.channel.logo,
                         info = data.stream.channel.status;
-                        if(info.length > 25) info = info.substring(0,25) + "...";
+                    if (info.length > 25) info = info.substring(0, 25) + "...";
 
-                    online += "<div class='contain col-md-4'>";
+                    online += "<div class='contain onlineStream col-md-4'>";
                     online += "<a target='_blank' href=" + channel + ">";
                     online += "<img class='logo online' src=" + logo + "></a>";
                     online += "<div class='info'>";
                     online += "<a target='_blank' href=" + channel + ">";
                     online += "<p class='channelName'>" + name + "</a></p>";
-                    
-                    online += "<p class='status live'>Live Stream:<br>";
+
+                    online += "<p class='status live'>Streaming Live:<br>";
                     online += "<i>" + info + "</i></p></div></div>";
                     $("#channels").append(online);
+
 
                 } else {
                     $.ajax({
@@ -66,7 +67,7 @@ $(document).ready(function() {
                             name_off = userName;
                             status = "Account Not Found";
                         }
-                        offline += "<div class='contain col-md-4'>";
+                        offline += "<div class='contain offlineStream col-md-4'>";
                         //logo to use if there is none
                         if (logo_off == null) {
                             logo_off = "https://static-cdn.jtvnw.net/jtv_user_pictures/twitch-profile_image-8a8c5be2e3b64a9a-300x300.png";
@@ -97,6 +98,26 @@ $(document).ready(function() {
         } //end getStream
 
     } //end displayChannel
+
+    //function for buttons
+
+    $("#all").click(function() {
+        $(".onlineStream").show();
+        $(".offlineStream").show();
+        console.log("Show All");
+    });
+
+    $("#online").click(function() {
+        $(".onlineStream").show();
+        $(".offlineStream").hide();
+        console.log("Show Online");
+    });
+
+    $("#offline").click(function() {
+        $(".onlineStream").hide();
+        $(".offlineStream").show();
+        console.log("Show Offline");
+    });
 
 })
 
