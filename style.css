@@ -1,5 +1,17 @@
 body {
 	//background-color: #dbd5e6;
+	font-family: "Josefin Sans",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+h1 {
+	font-family: "Allerta Stencil",Helvetica,Arial,sans-serif;
+	font-size: 3em;
+}
+a {
+	color: #000;
+}
+a:hover {
+    text-decoration: none;
 }
 .container-fluid {
 	margin-bottom: 40px;
@@ -9,7 +21,9 @@ body {
     background-color: #4b367c;
     color: #fff;
 }
-
+#header p {
+    font-size: 1.5em;
+}
 #channels {
     width: 800px;
     max-width: 100%;
@@ -34,6 +48,21 @@ img.logo.inactive {
     opacity: 0.4;
     filter: alpha(opacity=40);
 }
+p.channelName {
+    font-size: 1.3em;
+}
 .live {
     color: green;
+        font-size: 1.2em;
+    font-weight: 600;
+}
+.notLive {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+i {
+	color: #000;
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
 }
