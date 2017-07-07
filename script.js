@@ -34,15 +34,18 @@ $(document).ready(function() {
                     var online = "",
                         name = data.stream.channel.display_name,
                         logo = data.stream.channel.logo,
-                        game = data.stream.channel.game;
+                        info = data.stream.channel.status;
+                        if(info.length > 25) info = info.substring(0,25) + "...";
+
                     online += "<div class='contain col-md-4'>";
                     online += "<a target='_blank' href=" + channel + ">";
                     online += "<img class='logo online' src=" + logo + "></a>";
                     online += "<div class='info'>";
                     online += "<a target='_blank' href=" + channel + ">";
-                    online += "<p class='channelName'>" + name + " streamInfo " + game + "<p>";
-                    online += "</a>"
-                    online += "<p class='status live'>Live</p></div></div>";
+                    online += "<p class='channelName'>" + name + "</a></p>";
+                    
+                    online += "<p class='status live'>Live Stream:<br>";
+                    online += "<i>" + info + "</i></p></div></div>";
                     $("#channels").append(online);
 
                 } else {
@@ -85,7 +88,7 @@ $(document).ready(function() {
                             offline += "</a>";
                         }
 
-                        offline += "<p class='notLive'>" + status + "</p></div>";
+                        offline += "<p class='notLive'>" + status + "</p><br></div>";
 
                         $("#channels").append(offline);
                     }
