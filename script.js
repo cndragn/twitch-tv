@@ -68,9 +68,14 @@ $(document).ready(function() {
                         offline += "<div class='box'>";
                         offline += "<img class='offimg' src=" + logo_off + "></div>";
                         offline += "<div class='box'>";
-                        offline += "<a target='_blank' href=" + channel + ">";
-                        offline += "<h2>" + name_off + "</h2>";
-                        offline += "</a>";
+                        if (channel == null) {
+                            offline += "<h2>" + name_off + "</h2>";
+                        } else {
+                            offline += "<a target='_blank' href=" + channel + ">";
+                            offline += "<h2>" + name_off + "</h2>";
+                            offline += "</a>";
+                        }
+
                         offline += "<p class='red'>" + status + "</p></div>";
                         offline += "<br class='clear'>";
 
