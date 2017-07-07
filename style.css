@@ -46,6 +46,29 @@ p {
 .sort {
     margin-top: 40px;
 }
+.sortbg {
+    background-color: #e0dbea;
+    width: 210px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 50px;
+}
+.btn-default:hover, .btn-default.hover, .btn-default:active, .btn-default.active, .btn-default:focus, .btn-default.focus {
+    background-color: #4b367c;
+    color: white;
+    border: 2px solid #fff;
+    outline: none;
+}
+.btn-default {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #e0dbea;
+    border: 2px solid #fff;
+    color: #4b367c;
+    font-variant: small-caps;
+    outline: none;
+}
 
 #channels {
     width: 800px;

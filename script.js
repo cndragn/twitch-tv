@@ -101,6 +101,8 @@ $(document).ready(function() {
 
     //function for buttons
 
+     $("#all.btn-default").toggleClass("active");
+
     $("#all").click(function() {
         $(".onlineStream").show();
         $(".offlineStream").show();
@@ -110,12 +112,14 @@ $(document).ready(function() {
     $("#online").click(function() {
         $(".onlineStream").show();
         $(".offlineStream").hide();
+        $("#all.btn-default").removeClass('active')
         console.log("Show Online");
     });
 
     $("#offline").click(function() {
         $(".onlineStream").hide();
         $(".offlineStream").show();
+        $("#all.btn-default").removeClass('active')
         console.log("Show Offline");
     });
 
