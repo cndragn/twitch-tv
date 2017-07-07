@@ -36,10 +36,11 @@ $(document).ready(function() {
                         logo = data.stream.channel.logo,
                         game = data.stream.channel.game;
                     online += "<div class='contain'>";
-                    online += "<img class='logo' src=" + logo + ">";
+                    online += "<a target='_blank' href=" + channel + ">";
+                    online += "<img class='logo' src=" + logo + "></a>";
                     online += "<div class='info'>";
                     online += "<a target='_blank' href=" + channel + ">";
-                    online += "<h2>" + name + " streamInfo " + game + "</h2>";
+                    online += "<p class='channelName'>" + name + " streamInfo " + game + "<p>";
                     online += "</a>"
                     online += "<p class='status'>Live</p></div></div>";
                     $("#channels").append(online);
@@ -61,22 +62,26 @@ $(document).ready(function() {
                             name_off = userName;
                             status = "Account Not Found";
                         }
+                        offline += "<div class='contain'>";
                         if (logo_off == null) {
                             logo_off = "https://static-cdn.jtvnw.net/jtv_user_pictures/twitch-profile_image-8a8c5be2e3b64a9a-300x300.png";
                         }
-                        offline += "<div class='users'>";
-                        offline += "<div class='box'>";
-                        offline += "<img class='offimg' src=" + logo_off + "></div>";
-                        offline += "<div class='box'>";
+                        if (channel == null) {
+                            offline += "<img class='logo' src=" + logo_off + ">";
+                        } else {
+                            offline += "<a target='_blank' href=" + channel + ">";
+                            offline += "<img class='logo' src=" + logo_off + "></a>";
+                        }
+                        offline += "<div class='info'>";
                         if (channel == null) {
                             offline += "<h2>" + name_off + "</h2>";
                         } else {
                             offline += "<a target='_blank' href=" + channel + ">";
-                            offline += "<h2>" + name_off + "</h2>";
+                            offline += "<p class='channelName'>" + name_off + "<p>";
                             offline += "</a>";
                         }
 
-                        offline += "<p class='red'>" + status + "</p></div>";
+                        offline += "<p class='notLive'>" + status + "</p></div>";
                         offline += "<br class='clear'>";
 
                         $("#channels").append(offline);
