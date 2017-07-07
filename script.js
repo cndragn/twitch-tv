@@ -9,6 +9,7 @@ $(document).ready(function() {
         var streamInfo = "https://wind-bow.gomix.me/twitch-api/streams/" + name;
         var channelInfo = "https://wind-bow.gomix.me/twitch-api/channels/" + name;
         var userInfo = "https://wind-bow.gomix.me/twitch-api/users/" + name;
+        var userName = name;
 
         //Get next stream in iteration
         $.ajax({
@@ -34,18 +35,47 @@ $(document).ready(function() {
                         name = data.stream.channel.display_name,
                         logo = data.stream.channel.logo,
                         game = data.stream.channel.game;
-                    online += "<div class='users'>";
-                    online += "<div class='box'>";
-                    online += "<img class='onimg' src=" + logo + "></div>";
-                    online += "<div class='box'>";
+                    online += "<div class='contain'>";
+                    online += "<img class='logo' src=" + logo + ">";
+                    online += "<div class='info'>";
                     online += "<a target='_blank' href=" + channel + ">";
                     online += "<h2>" + name + " streamInfo " + game + "</h2>";
                     online += "</a>"
-                    online += "<p class='blue'>Live</p></div>";
-                    online += "<br class='clear'>";
-                    $("#online").append(online);
+                    online += "<p class='status'>Live</p></div></div>";
+                    $("#channels").append(online);
+
                 } else {
-                    console.log("Offline")
+                    $.ajax({
+                        type: "GET",
+                        url: userInfo,
+                        dataType: "jsonp",
+                        success: getUser
+                    });
+
+                    function getUser(userdata) {
+                        var offline = "",
+                            name_off = userdata.display_name,
+                            logo_off = userdata.logo,
+                            status = "Offline";
+                        if (name_off == undefined) {
+                            name_off = userName;
+                            status = "Account Not Found";
+                        }
+                        if (logo_off == null) {
+                            logo_off = "https://static-cdn.jtvnw.net/jtv_user_pictures/twitch-profile_image-8a8c5be2e3b64a9a-300x300.png";
+                        }
+                        offline += "<div class='users'>";
+                        offline += "<div class='box'>";
+                        offline += "<img class='offimg' src=" + logo_off + "></div>";
+                        offline += "<div class='box'>";
+                        offline += "<a target='_blank' href=" + channel + ">";
+                        offline += "<h2>" + name_off + "</h2>";
+                        offline += "</a>";
+                        offline += "<p class='red'>" + status + "</p></div>";
+                        offline += "<br class='clear'>";
+
+                        $("#channels").append(offline);
+                    }
                 }
             } //end getChannelUrl
         } //end getStream
