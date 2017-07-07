@@ -89,7 +89,7 @@ $(document).ready(function() {
                             offline += "</a>";
                         }
 
-                        offline += "<p class='notLive'>" + status + "</p><p>&nbsp;</div>";
+                        offline += "<p class='notLive'>" + status + "</p><p class='space'>&nbsp;</div>";
 
                         $("#channels").append(offline);
                     }

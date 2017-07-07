@@ -16,6 +16,9 @@ a {
 a:hover {
     text-decoration: none;
 }
+p {
+	margin: 0;
+}
 
 .container-fluid {
     margin-bottom: 40px;
@@ -78,4 +81,16 @@ i {
     font-size: 1em;
     font-weight: normal;
     font-style: normal;
+}
+p.space {
+    line-height: 2;
+}
+footer {
+	color: #fff;
+	    background-color: #4b367c;
+    padding: 20px;
+}
+footer a, footer a:hover {
+	color: #fff;
+	text-decoration: underline;
 }
